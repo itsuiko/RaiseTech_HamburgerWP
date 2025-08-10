@@ -1,0 +1,13 @@
+//Object
+//Component
+
+@use "../../foundation/global/" as g;
+
+.c-contents {
+    color: g.$brown;
+
+    &__heading {
+        @include g.font-family(MPlusBold);
+
+    }
+}

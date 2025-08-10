@@ -1,0 +1,22 @@
+//project
+
+@use "../../foundation/global/" as g;
+
+.p-logo {
+    font-family: "Roboto";
+    color: g.$grey;
+    @include g.font-size(40);
+    font-weight: 700;
+    margin-top: 43px;
+    
+
+    @include g.breakpoint(tablet) {
+        margin-top: 40px;
+    }
+
+    @include g.breakpoint(pc) {
+        @include g.font-size(64);
+        margin-top: 66px;
+        margin-bottom: 67px;
+    }
+}

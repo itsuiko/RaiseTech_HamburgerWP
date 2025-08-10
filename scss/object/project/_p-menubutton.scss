@@ -1,0 +1,23 @@
+//project
+
+@use "../../foundation/global/" as g;
+
+.p-menubutton {
+    @include g.font-family(RobotoBold);
+    @include g.font-size(20);
+    margin-left: auto;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: inherit;
+
+        @include g.breakpoint(tablet) {
+            @include g.font-size(34);
+            top: 20px;
+            right: 25px;
+        }
+
+        @include g.breakpoint(pc) {
+            display: none;
+        }
+    }

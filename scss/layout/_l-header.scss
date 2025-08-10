@@ -1,0 +1,22 @@
+//Layout
+
+@use "../foundation/global/" as g;
+
+.l-header {
+    grid-row: 1;
+    grid-column: 1/2;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 215px;
+    background-color: g.$bglightorange;
+
+    @include g.breakpoint(tablet) {
+        height: 217px;
+    }
+
+    @include g.breakpoint(pc) {
+        grid-row: 1;
+        grid-column: 1;
+    }
+}

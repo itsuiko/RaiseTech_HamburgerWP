@@ -1,0 +1,13 @@
+//project
+
+@use "../../foundation/global/" as g;
+
+.c-grid {
+    display: grid;
+    grid-template-rows: 215px 1fr 150px;
+    grid-template-columns: auto ;
+
+    @include g.breakpoint(pc) {
+        grid-template-columns: 80% 20%;
+    }
+}

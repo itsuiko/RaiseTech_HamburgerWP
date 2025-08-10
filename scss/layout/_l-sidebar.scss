@@ -1,0 +1,41 @@
+//layout
+
+@use "../foundation/global/" as g;
+
+.l-sidebar {
+    grid-row: 1/4;
+    grid-column: 2/1;
+    position: relative;
+    margin-left: auto;
+    width: 87vw;
+    right: -87vw;
+    opacity: 0;
+    transition: right 0.5s ease-out, opacity 0.5s ease-in;
+    background-color: g.$lightorange;
+
+    @include g.breakpoint(tablet) {
+        width: 44vw;
+        right: -44vw;
+    }
+    
+
+    @include g.breakpoint(pc) {
+        right: 0;
+        transition: none;
+        display: block;
+        transform: translateX(0);
+        grid-row: 1/3;
+        grid-column: 2;
+        width: 100%;
+        z-index: 0;
+        opacity: 1;
+    }
+}
+
+.l-sidebar.is-active {
+    right: 0;
+    opacity: 1;
+    z-index: 10;
+    display: block;
+    overflow: hidden;
+}

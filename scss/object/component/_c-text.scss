@@ -1,0 +1,16 @@
+//Object
+//Component
+
+@use "../../foundation/global/" as g;
+
+.c-text--brown {
+    color: g.$brown;
+}
+
+.c-text--white {
+    color: g.$white;
+}
+
+.c-text--grey {
+    color: g.$grey;
+}

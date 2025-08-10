@@ -1,0 +1,51 @@
+//project
+//pagination
+
+@use "../../foundation/global/" as g;
+
+.p-pagination {
+    align-items: center;
+    margin: 43px 20px 32px 20px;
+    color: g.$grey;
+
+    &--mobile {
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+        @include g.font-family(MPlusRegular);
+        @include g.font-size(16);
+        color: g.$grey;
+
+            @include g.breakpoint(tablet){
+                display: none;
+            }
+    }
+
+    &--desktop {
+        display: none;
+        align-items: center;
+        gap: 0.5em;
+        @include g.font-family(RobotoBold);
+        @include g.font-size(16);
+
+         @include g.breakpoint(tablet) {
+            display: flex;
+            justify-content: center;
+            gap: 17px;
+            color: g.$grey;
+         }
+    }
+
+    &__page {
+        border: 1px solid g.$grey;
+        background-color: g.$white;
+        padding: 5px 10px;
+    }
+
+    &__page--1 {
+        border: 1px solid g.$grey;
+        background-color: g.$brown;
+        color: g.$white;
+
+    }
+}

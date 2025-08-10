@@ -1,0 +1,63 @@
+//project
+//textbox
+
+@use "../../foundation/global/" as g;
+
+.p-textbox {
+    height: auto;
+    width: auto;
+    margin: 0 16px 16px 16px;
+    background-color: g.$white;
+    opacity: 0.7;
+    padding: 16px;
+
+    &__title {
+        @include g.font-family(MPlusBold);
+        @include g.font-size(22);
+        
+            @include g.breakpoint(tablet) {
+                @include g.font-size(24);
+            }
+    }
+
+    &__text {
+        @include g.font-family(MPlusRegular);
+        margin-top: 8px;
+
+    }
+}
+
+.p-textbox--archive {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 22px 19px 22px;
+    padding: 0;
+    gap: 25px;
+
+        @include g.breakpoint(tablet) {
+            margin: 39px 42px;
+        }
+
+        @include g.breakpoint(pc) {
+            margin: 70px 100px;
+        }
+
+    .p-textbox__title--archive {
+        @include g.font-size(28);
+
+            @include g.breakpoint(tablet) {
+                @include g.font-size(36);
+            }
+    }
+
+}
+
+.p-textbox--singlepage {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include g.breakpoint(tablet) {
+        gap: 55px;
+    }
+}

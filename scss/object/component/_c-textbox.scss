@@ -1,0 +1,8 @@
+//Object
+//Component
+
+@use "../../foundation/global/" as g;
+
+.c-textbox--brown {
+    color: g.$brown;
+}

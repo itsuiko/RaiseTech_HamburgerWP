@@ -1,0 +1,38 @@
+//Foundation
+//Base
+
+@use "../foundation/global/" as g;
+
+
+body {
+    background-color: g.$bglightorange;
+    font-family: "Roboto", "M PLUS 1p", sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+}

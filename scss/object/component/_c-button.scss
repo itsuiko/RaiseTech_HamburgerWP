@@ -1,0 +1,9 @@
+//Object
+//Component
+
+@use "../../foundation/global/" as g;
+
+.c-button {
+    color: g.$grey;
+    border-style: none;
+}

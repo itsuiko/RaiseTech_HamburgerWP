@@ -1,0 +1,19 @@
+//Object
+//Project
+
+@use "../../foundation/global/" as g;
+
+
+.p-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include g.breakpoint(pc) {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 4%;
+        width: 100%;
+    }
+}

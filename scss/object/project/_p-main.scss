@@ -1,0 +1,10 @@
+//project
+
+@use "../../foundation/global/" as g;
+
+.p-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}

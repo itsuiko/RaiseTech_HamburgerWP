@@ -1,0 +1,27 @@
+//project
+//blockquote
+
+@use "../../foundation/global/" as g;
+
+.p-blockquote {
+    background-color: g.$lightgrey;
+    padding: 30px 20px;
+    @include g.font-family(MPlusRegular);
+
+    @include g.breakpoint(tablet) {
+        padding: 50px;
+    }
+
+    &__text {
+        margin-bottom: 30px;
+
+        @include g.breakpoint(tablet) {
+            margin-bottom: 60px;
+        }
+    }
+
+    &__cite {
+        color: #0000ee;
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,110 @@
+//project
+//card
+
+@use "../../foundation/global/" as g;
+
+.p-card {
+    display: grid;
+    grid-template-rows: auto auto;
+    //box-sizing: border-box;
+    //display: flex;
+    //flex-direction: column;
+    padding: 0 5% 19px 5%;
+
+        @include g.breakpoint(tablet) {
+            grid-template-columns: 50% 50%;
+        }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        //display: block;
+    }
+
+    &__textbox {
+        width: 100%;
+        background-color: g.$darkbrown;
+        color: g.$white;
+        padding: 32px 17px 43px 17px;
+        position: relative;
+        //box-sizing: border-box;
+
+         @include g.breakpoint(tablet) {
+            padding: 32px 59px 45px 35px;
+         }
+    }
+
+    &__type {
+        @include g.font-family(MPlusBold);
+        @include g.font-size(20);
+    }
+
+    &__heading {
+        @include g.font-family(MPlusBold);
+        @include g.font-size(16);
+        position: relative;
+        margin-top: 21px;
+
+    }
+
+    &__text{
+        @include g.font-family(MPlusRegular);
+        @include g.font-size(16);
+        margin: 7px 1px 0 1px;
+
+    }
+
+    &__link {
+        @include g.font-family(MPlusBold);
+        @include g.font-size(16);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 163px;
+        height: 42px;
+        background-color: g.$white;
+        color: g.$grey;
+        border-radius: 100px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 11%;
+        
+            @include g.breakpoint(pc) {
+                width: 292px;
+                height: 76px;
+            }
+    }
+
+
+}
+
+.p-card--singlepage {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    gap: 10px;
+
+    .p-card__img--singlepage {
+        min-height: 90px
+    }
+
+    .p-card__text--singlepage {
+        @include g.font-family(MPlusRegular);
+    }
+}
+
+.p-card--singlepage2 {
+    display: grid;
+    grid-template-columns: 54% 46%;
+    gap: 10px;
+
+    .p-card__img--singlepage {
+        min-height: 90px;
+        grid-column: 2/3
+    }
+
+    .p-card__text--singlepage {
+        @include g.font-family(MPlusRegular);
+        grid-row: 1/2;
+    }
+}

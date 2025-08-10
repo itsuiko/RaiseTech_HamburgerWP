@@ -1,0 +1,107 @@
+//project
+//location
+
+@use "../../foundation/global/" as g;
+
+.p-location {
+    position: relative;
+
+    &__map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    &__textbox {
+        min-height: 691px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom,
+                    rgba(0,0,0,0.55) 0%,
+                    rgba(0,0,0,0.55) 60%,
+                    rgba(0,0,0,0.3) 60%,
+                    rgba(0,0,0,0.3) 100%,);
+
+                }
+        @include g.breakpoint(tablet) {
+            min-height: 415px;
+
+            &::before {
+                content: '';
+                background: rgba(0,0,0,0.55);
+            }
+        }
+        
+        @include g.breakpoint(pc) {
+            min-height: 649px;
+
+            &::before {
+                content: '';
+                background: linear-gradient(to right,
+                    rgba(0,0,0,0.55) 0%,
+                    rgba(0,0,0,0.55) 61%,
+                    rgba(0,0,0,0.3) 61%,
+                    rgba(0,0,0,0.3) 100%,);
+            }
+        }
+
+        &-title {
+            position: relative;
+            @include g.font-family(MPlusBold);
+            @include  g.font-size(30);
+            color: g.$white;
+            margin-top: 42px;
+            margin-left: 42px;
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 50px;
+                left: 0px;
+                height: 2px;
+                width: 75px;
+                background-color: g.$white;
+            }
+
+            @include g.breakpoint(pc) {
+                @include g.font-size(36);
+                margin-top: 86px;
+                margin-left: 119px;
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    top: 80px;
+                }
+            }
+
+        }
+
+        &-text {
+            position: relative;
+            @include g.font-family(MPlusBold);
+            @include  g.font-size(14);
+            color: g.$white;
+            padding: 32px 40px 47px 40px;
+            line-height: 2.5;
+            
+            @include g.breakpoint(tablet) {
+                margin-top: 35px;
+            }
+
+            @include g.breakpoint(pc) {
+                padding: 32px 0 75px 119px;
+                width: 45%;
+            }
+        }
+    }
+}

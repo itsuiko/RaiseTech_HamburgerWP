@@ -1,0 +1,114 @@
+//project
+
+@use "../../foundation/global/" as g;
+
+.p-sidebar {
+    position: absolute;
+    width: 100%;
+    color: g.$grey;
+    
+    &__btn {
+        @include g.font-family(RobotoBold);
+        @include g.font-size(34);
+        margin: 84px 0 90px 46px;
+        cursor:default;
+
+        @include g.breakpoint(pc){
+            pointer-events: none;
+        }
+
+    }
+    
+    &__nav {
+        margin: 0 0 0 46px;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    &__heading {
+        @include g.font-family(MPlusBold);
+        @include g.font-size(24);
+        cursor: default;
+    }
+
+    &__menu {
+        @include g.font-family(MPlusRegular);
+        @include g.font-size(20);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 40px 0 0 20px;
+    }
+
+    &__title {
+        opacity: 0;
+        
+        @include g.breakpoint(pc) {
+            opacity: 1;
+        }
+    }
+        
+}
+
+.p-sidebar.is-active {
+    color: g.$grey;
+    background-color: g.$lightorange;
+    height: 100vh;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    padding-bottom: 5rem;
+    
+
+    .p-sidebar__btn {
+        position: absolute;
+        display: block;
+        width: 35px;
+        height: 35px;
+        top: 1px;
+        right: 1px;
+        font-size: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .p-sidebar__btn::before, .p-sidebar__btn::after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 35px;
+        background-color: g.$grey;
+    }
+
+    .p-sidebar__btn::before {
+        transform: translate(-50%,-50%) rotate(45deg);
+    }
+
+    .p-sidebar__btn::after {
+        transform: translate(-50%,-50%) rotate(-45deg);
+    }
+    
+    .p-sidebar__nav {
+        margin: 178px 0 0 46px;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .p-sidebar__heading {
+        @include g.font-family(MPlusBold);
+        @include g.font-size(24);
+    }
+
+    .p-sidebar__menu {
+        @include g.font-family(MPlusRegular);
+        @include g.font-size(20);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 40px 0 0 20px;
+    }
+
+}

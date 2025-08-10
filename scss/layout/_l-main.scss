@@ -1,0 +1,11 @@
+//layout
+//main
+
+@use "../foundation/global/" as g;
+
+.l-main {
+    grid-row: 2/3;
+    grid-column: 1;
+    position: relative;
+
+}

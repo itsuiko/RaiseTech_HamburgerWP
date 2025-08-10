@@ -1,0 +1,145 @@
+//project
+
+@use "../../foundation/global/" as g;
+
+.p-mainvisual {
+    position: relative;
+    width: 100%;
+    height: 285px;
+
+    @include g.breakpoint(pc) {
+        height: 530px;
+    }
+
+    &__img {
+        position: absolute;
+        background-image: url(../../images/main1.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+
+        @include g.breakpoint(tablet) {
+            background-image: url(../../images/mainvisual-pc@2x.jpg);
+        }
+    }
+
+    &__heading {
+        position: absolute;
+        @include g.font-family(MPlusBold);
+        @include g.font-size(36);
+        color: g.$white;
+        margin-top: 122px;
+        margin-left: 25px;
+
+        @include g.breakpoint(tablet) {
+            margin-left: 86px;
+        }
+
+        @include g.breakpoint(pc) {
+            @include g.font-size(40);
+            margin-top: 234px;
+        }
+    }
+}
+
+.p-mainvisual {
+    position: relative;
+    width: 100%;
+    height: 285px;
+
+    @include g.breakpoint(pc) {
+        height: 239px;
+    }
+
+    &__img--archive {
+        position: absolute;
+        background-image: url(../../images/archive-sp.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        background-blend-mode: multiply;
+
+        @include g.breakpoint(tablet) {
+            background-image: url(../../images/page-title_arcive@2x.jpg);
+        }
+    }
+
+    &__heading--archive {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10%;
+
+        @include g.breakpoint(tablet) {
+            flex-direction: row;
+            gap: 19px;
+        }
+
+        &-title {
+        
+            @include g.font-family(RobotoBold);
+            @include g.font-size(36);
+            color: g.$white;
+
+            @include g.breakpoint(pc) {
+                @include g.font-size(40);
+            }
+
+        }
+        
+        &-type {
+            @include g.font-family(MPlusBold);
+            @include g.font-size(16);
+            color: g.$white;
+            margin:auto 0;
+        }
+    }    
+}
+
+.p-mainvisual--singlepage {
+    position: relative;
+    width: 100%;
+    height: 225px;
+
+    @include g.breakpoint(tablet) {
+        height: 500px;            
+        }
+
+    .p-mainvisual__img--single {
+        position: absolute;
+        background-image: url(../../../images/single-top.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+
+    .p-mainvisual__img--page {
+        position: absolute;
+        background-image: url(../../../images/page-title_shop@2x.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }    
+
+    .p-mainvisual__heading--singlepage {
+        @include g.font-family(MPlusBold);
+        @include g.font-size(36);
+        color: g.$white;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 7%;
+    }
+}

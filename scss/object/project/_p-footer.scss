@@ -1,0 +1,57 @@
+//project
+
+@use "../../foundation/global/" as g;
+
+.p-footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background-image: url(../../images/footerbg.jpg);
+    @include g.font-family(MPlusRegular);
+    color: g.$white;
+
+    &__menu {
+        position: absolute;
+        display: flex;
+        @include g.font-size(18);
+        top: 16px;
+        gap: 10px;
+
+        @include g.breakpoint(tablet) {
+            @include g.font-size(20);
+            top: 30px;
+        }
+
+        @include g.breakpoint(pc) {
+            top: 41px;
+        }
+
+        &-link--line {
+            content: "";
+            height: 25px;
+            width: 2px;
+            background-color: g.$white;
+
+            @include g.breakpoint(tablet) {
+                height: 30px;
+            }
+        }
+    }
+
+    .p-footer__copy {
+        position: absolute;
+        @include g.font-size(14);
+        bottom: 16px;
+
+        @include g.breakpoint(tablet) {
+            bottom: 24px;
+        }
+
+        @include g.breakpoint(pc) {
+            bottom: 27px;
+        }
+    }
+}
