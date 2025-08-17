@@ -29,7 +29,7 @@
         background-position: 5px center;
         background-repeat: no-repeat;
         padding-left: 40px;
-        background-image: url(../../../images/mushimegane.svg);
+        background-image: url(../images/mushimegane.svg);
 
         @include g.breakpoint(tablet) {
             width: 396px;

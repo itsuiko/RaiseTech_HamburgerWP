@@ -285,7 +285,7 @@ button {
   background-position: 5px center;
   background-repeat: no-repeat;
   padding-left: 40px;
-  background-image: url(../../../images/mushimegane.svg);
+  background-image: url(../images/mushimegane.svg);
 }
 @media (min-width: 768px) {
   .p-form__search {
@@ -363,7 +363,7 @@ button {
 }
 .p-mainvisual__img {
   position: absolute;
-  background-image: url(../../images/main1.jpg);
+  background-image: url(../images/main1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -372,7 +372,7 @@ button {
 }
 @media (min-width: 768px) {
   .p-mainvisual__img {
-    background-image: url(../../images/mainvisual-pc@2x.jpg);
+    background-image: url(../images/mainvisual-pc@2x.jpg);
   }
 }
 .p-mainvisual__heading {
@@ -399,19 +399,19 @@ button {
   }
 }
 
-.p-mainvisual {
+.p-mainvisual--archivesearch {
   position: relative;
   width: 100%;
   height: 285px;
 }
 @media (min-width: 1300px) {
-  .p-mainvisual {
+  .p-mainvisual--archivesearch {
     height: 239px;
   }
 }
-.p-mainvisual__img--archive {
+.p-mainvisual--archivesearch .p-mainvisual__img--archive {
   position: absolute;
-  background-image: url(../../images/archive-sp.jpg);
+  background-image: url(../images/archive-sp.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -421,11 +421,11 @@ button {
   background-blend-mode: multiply;
 }
 @media (min-width: 768px) {
-  .p-mainvisual__img--archive {
-    background-image: url(../../images/page-title_arcive@2x.jpg);
+  .p-mainvisual--archivesearch .p-mainvisual__img--archive {
+    background-image: url(../images/page-title_arcive@2x.jpg);
   }
 }
-.p-mainvisual__heading--archive {
+.p-mainvisual--archivesearch .p-mainvisual__heading--archive {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -435,12 +435,12 @@ button {
   left: 10%;
 }
 @media (min-width: 768px) {
-  .p-mainvisual__heading--archive {
+  .p-mainvisual--archivesearch .p-mainvisual__heading--archive {
     flex-direction: row;
     gap: 19px;
   }
 }
-.p-mainvisual__heading--archive-title {
+.p-mainvisual--archivesearch .p-mainvisual__heading--archive-title {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -449,12 +449,12 @@ button {
   color: #FFF;
 }
 @media (min-width: 1300px) {
-  .p-mainvisual__heading--archive-title {
+  .p-mainvisual--archivesearch .p-mainvisual__heading--archive-title {
     font-size: 40px;
     font-size: 2.5rem;
   }
 }
-.p-mainvisual__heading--archive-type {
+.p-mainvisual--archivesearch .p-mainvisual__heading--archive-type {
   font-family: "M PLUS 1p", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -476,7 +476,7 @@ button {
 }
 .p-mainvisual--singlepage .p-mainvisual__img--single {
   position: absolute;
-  background-image: url(../../../images/single-top.jpg);
+  background-image: url(../images/single-top.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -485,7 +485,7 @@ button {
 }
 .p-mainvisual--singlepage .p-mainvisual__img--page {
   position: absolute;
-  background-image: url(../../../images/page-title_shop@2x.jpg);
+  background-image: url(../images/page-title_shop@2x.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -528,10 +528,10 @@ button {
   }
 }
 .p-contents .p-content--takeout {
-  background-image: url(../../images/front-takeout.jpg);
+  background-image: url(../images/front-takeout.jpg);
 }
 .p-contents .p-content--eatin {
-  background-image: url(../../images/eatin.jpg);
+  background-image: url(../images/eatin.jpg);
 }
 .p-contents .p-content--takeout,
 .p-contents .p-content--eatin {
@@ -1146,7 +1146,7 @@ button {
   justify-content: center;
   align-items: center;
   height: 150px;
-  background-image: url(../../images/footerbg.jpg);
+  background-image: url(../images/footerbg.jpg);
   font-family: "M PLUS 1p", sans-serif;
   font-weight: 400;
   font-style: normal;

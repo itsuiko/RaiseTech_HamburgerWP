@@ -1,7 +1,7 @@
 <?php get_header(); ?>
         <main class="l-main">
             <div class="p-main">
-            <div class="p-mainvisual">
+            <div class="p-mainvisual--archivesearch">
                 <div class="p-mainvisual__img--archive"></div>
                 <h1 class="p-mainvisual__heading--archive">
                     <span class="p-mainvisual__heading--archive-title">Search:</span>

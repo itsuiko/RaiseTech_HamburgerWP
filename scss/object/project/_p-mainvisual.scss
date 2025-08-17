@@ -13,7 +13,7 @@
 
     &__img {
         position: absolute;
-        background-image: url(../../images/main1.jpg);
+        background-image: url(../images/main1.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -21,7 +21,7 @@
         height: 100%;
 
         @include g.breakpoint(tablet) {
-            background-image: url(../../images/mainvisual-pc@2x.jpg);
+            background-image: url(../images/mainvisual-pc@2x.jpg);
         }
     }
 
@@ -44,7 +44,7 @@
     }
 }
 
-.p-mainvisual {
+.p-mainvisual--archivesearch {
     position: relative;
     width: 100%;
     height: 285px;
@@ -53,9 +53,9 @@
         height: 239px;
     }
 
-    &__img--archive {
+    .p-mainvisual__img--archive {
         position: absolute;
-        background-image: url(../../images/archive-sp.jpg);
+        background-image: url(../images/archive-sp.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -65,11 +65,11 @@
         background-blend-mode: multiply;
 
         @include g.breakpoint(tablet) {
-            background-image: url(../../images/page-title_arcive@2x.jpg);
+            background-image: url(../images/page-title_arcive@2x.jpg);
         }
     }
 
-    &__heading--archive {
+    .p-mainvisual__heading--archive {
         display: flex;
         flex-direction: column;
         gap: 12px;
@@ -115,7 +115,7 @@
 
     .p-mainvisual__img--single {
         position: absolute;
-        background-image: url(../../../images/single-top.jpg);
+        background-image: url(../images/single-top.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -125,7 +125,7 @@
 
     .p-mainvisual__img--page {
         position: absolute;
-        background-image: url(../../../images/page-title_shop@2x.jpg);
+        background-image: url(../images/page-title_shop@2x.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
