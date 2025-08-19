@@ -1,23 +1,17 @@
 <?php
 
-/**
- * テーマの初期設定
- */
 function RaiseTech_Hamburger_theme_setup() {
-  // タイトルタグを有効化
+  // タイトルタグ
   add_theme_support( 'title-tag' );
 
   // メニューを有効化
   add_theme_support( 'menus' );
 
-  // アイキャッチ画像を有効化
+  // アイキャッチ画像
   add_theme_support( 'post-thumbnails' );
 
-  // HTML5マークアップを有効化
+  // HTML5
   add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
-
-  // ウィジェットを有効化
-  add_theme_support( 'widgets' );
 
   register_nav_menus(array(
     'footer_nav'   => esc_html__('フッターのナビゲーション', 'RaiseTech_Hamburger'),
@@ -46,20 +40,22 @@ function RaiseTech_Hamburger_enqueue_assets() {
   });
 
   // style.css の読み込み
+  $style_path = get_template_directory() . '/css/style.css';
   wp_enqueue_style(
     'theme-style',
     get_template_directory_uri() . '/css/style.css',
     array(),
-    filemtime(get_template_directory() . '/css/style.css') // キャッシュ対策
+    file_exists($style_path) ? filemtime($style_path) : null
   );
 
   // main.js の読み込み（defer 相当）
+  $js_path = get_template_directory() . '/js/main.js';
   wp_enqueue_script(
     'main-js',
     get_template_directory_uri() . '/js/main.js',
     array(),
-    null,
-    true // フッターで読み込む（deferに近い）
+    file_exists($js_path) ? filemtime($js_path) : null,
+    true
   );
 
 }

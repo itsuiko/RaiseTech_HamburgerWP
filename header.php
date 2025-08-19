@@ -3,13 +3,13 @@
     <head>
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php wp_title('|', true, 'right'); ?></title>
-        <link rel="icon" type="image/png" href="images/favicon.png">
+        <link rel="icon" type="image/png" href="<?php echo esc_url( get_theme_file_uri( 'images/favicon.png' ) ); ?>">
 
         <?php wp_head(); ?>
 
 </head>
-<body>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
     <div class="c-grid">
         <header class="l-header">
             <div class="p-header">
