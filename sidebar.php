@@ -1,5 +1,5 @@
 <aside class="l-sidebar js-sidebar" aria-hidden="true">
-            <div class="p-sidebar">
+            <div class="p-sidebar js-sidebar">
             <button class="p-sidebar__btn c-button js-menu">
                 <h2 class="p-sidebar__title">Menu</h2>
             </button>
@@ -12,7 +12,6 @@
                     'menu_class' => 'p-sidebar__nav',
                 ) );
             } else {
-            // フォールバック（既存の静的メニュー）
             ?>
             <nav class="p-sidebar__nav">
                 <section class="p-sidebar__nav--bargur">
