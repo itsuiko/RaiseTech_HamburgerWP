@@ -37,6 +37,10 @@
     &__type {
         @include g.font-family(MPlusBold);
         @include g.font-size(20);
+
+        @include g.breakpoint(pc) {
+            @include g.font-size(36);
+        }
     }
 
     &__heading {
@@ -45,12 +49,21 @@
         position: relative;
         margin-top: 21px;
 
+        @include g.breakpoint(pc) {
+            @include g.font-size(24);
+            margin-top: 44px;
+        }
+
     }
 
     &__text{
         @include g.font-family(MPlusRegular);
         @include g.font-size(16);
-        margin: 7px 1px 0 1px;
+        margin-top: 7px;
+
+        @include g.breakpoint(pc) {
+            margin-top: 13px;
+        }
 
     }
 

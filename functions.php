@@ -15,11 +15,45 @@ function RaiseTech_Hamburger_theme_setup() {
 
   register_nav_menus(array(
     'footer_nav'   => esc_html__('フッターのナビゲーション', 'RaiseTech_Hamburger'),
-    'sidebar_menu' => esc_html__('サイドバーのメニュー', 'RaiseTech_Hamburger'),
-    )
-  );
+    'sidebar_burger_menu' => esc_html__('サイドバー（バーガー）', 'RaiseTech_Hamburger'),
+    'sidebar_side_menu'   => esc_html__('サイドバー（サイド）', 'RaiseTech_Hamburger'),
+    'sidebar_drink_menu'  => esc_html__('サイドバー（ドリンク）', 'RaiseTech_Hamburger'),
+  ));
 }
 add_action('after_setup_theme','RaiseTech_Hamburger_theme_setup');
+
+// ------------------------------
+// Footer Nav Walker
+// ------------------------------
+
+class Footer_Nav_Walker extends Walker_Nav_Menu {
+  public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0) {
+    $output .= '<a href="' . esc_url($item->url) . '" class="p-footer__menu-link">';
+    $output .= esc_html($item->title);
+    $output .= '</a>';
+  }
+
+  public function end_el(&$output, $item, $depth = 0, $args = []) {
+  // 最後のメニュー項目でなければ区切り線を出力
+  if (isset($args->menu) && $item->menu_order < $args->menu->count) {
+  $output .= '<span class="p-footer__menu-link--line"></span>';
+  }
+}
+
+}
+// ------------------------------
+// Sidebar Menu Walker
+// ------------------------------
+
+class Sidebar_Menu_Walker extends Walker_Nav_Menu {
+  public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0) {
+    $output .= '<li class="p-sidebar__list">';
+    $output .= '<a href="' . esc_url($item->url) . '" class="p-sidebar__list-menu">';
+    $output .= esc_html($item->title);
+    $output .= '</a></li>';
+  }
+}
+
 
 // ------------------------------
 // 2. CSS・JSの読み込み
@@ -40,21 +74,19 @@ function RaiseTech_Hamburger_enqueue_assets() {
   });
 
   // style.css の読み込み
-  $style_path = get_template_directory() . '/css/style.css';
   wp_enqueue_style(
     'theme-style',
     get_template_directory_uri() . '/css/style.css',
     array(),
-    file_exists($style_path) ? filemtime($style_path) : null
+    '1.0.0'
   );
 
   // main.js の読み込み（defer 相当）
-  $js_path = get_template_directory() . '/js/main.js';
   wp_enqueue_script(
     'main-js',
     get_template_directory_uri() . '/js/main.js',
     array(),
-    file_exists($js_path) ? filemtime($js_path) : null,
+    '1.0.0',
     true
   );
 

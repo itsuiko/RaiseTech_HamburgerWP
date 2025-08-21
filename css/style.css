@@ -807,6 +807,12 @@ button {
   font-size: 20px;
   font-size: 1.25rem;
 }
+@media (min-width: 1300px) {
+  .p-card__type {
+    font-size: 36px;
+    font-size: 2.25rem;
+  }
+}
 .p-card__heading {
   font-family: "M PLUS 1p", sans-serif;
   font-weight: 700;
@@ -816,13 +822,25 @@ button {
   position: relative;
   margin-top: 21px;
 }
+@media (min-width: 1300px) {
+  .p-card__heading {
+    font-size: 24px;
+    font-size: 1.5rem;
+    margin-top: 44px;
+  }
+}
 .p-card__text {
   font-family: "M PLUS 1p", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
   font-size: 1rem;
-  margin: 7px 1px 0 1px;
+  margin-top: 7px;
+}
+@media (min-width: 1300px) {
+  .p-card__text {
+    margin-top: 13px;
+  }
 }
 .p-card__link {
   font-family: "M PLUS 1p", sans-serif;

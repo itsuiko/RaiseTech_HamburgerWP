@@ -1,11 +1,16 @@
 <footer class="l-footer">
             <div class="p-footer">
             <div class="p-footer__menu">
-                <a href="/" class="p-footer__menu-link">ショップ情報</a>
-                    
-                <span class="p-footer__menu-link--line"></span>
-                    
-                <a href="/" class="p-footer__menu-link">ヒストリー</a>
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'footer_nav',
+                    'container'      => false,
+                    'menu_class'     => '',
+                    'items_wrap'     => '%3$s',
+                    'menu'           => wp_get_nav_menu_object('footer-menu'),
+                    'walker'         => new Footer_Nav_Walker(),
+                ));
+                ?>
             </div>    
             <small class="p-footer__copy">Copyright: RaiseTech</small>
             </div>
