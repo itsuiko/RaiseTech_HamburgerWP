@@ -1,27 +1,18 @@
 <footer class="l-footer">
-            <div class="p-footer">
-            <?php
-            if ( has_nav_menu( 'footer_nav' ) ) {
-                wp_nav_menu( array(
-                    'theme_location' => 'footer_nav',
-                    'container' => false,
-                    'menu_class' => 'p-footer__menu',
-                ) );
-            } else {
-            ?>    
-            <div class="p-footer__menu">
-                <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'footer_nav',
-                    'container'      => false,
-                    'menu_class'     => '',
-                    'items_wrap'     => '%3$s',
-                    'menu'           => wp_get_nav_menu_object('footer-menu'),
-                    'walker'         => new Footer_Nav_Walker(),
-                ));
-                ?>
-            </div>    
-            <small class="p-footer__copy">Copyright: RaiseTech</small>
+            <div class="p-footer">  
+                <div class="p-footer__menu">
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer_nav',
+                        'container'      => false,
+                        'menu_class'     => '',
+                        'items_wrap'     => '%3$s',
+                        'menu'           => wp_get_nav_menu_object('footer-menu'),
+                        'walker'         => new Footer_Nav_Walker(),
+                    ));
+                    ?>
+                </div>    
+                <small class="p-footer__copy">Copyright: RaiseTech</small>
             </div>
         </footer>
     </div>
