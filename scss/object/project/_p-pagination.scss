@@ -21,7 +21,9 @@
             }
     }
 
-    &--desktop {
+}
+
+.wp-pagenavi {
         display: none;
         align-items: center;
         gap: 0.5em;
@@ -33,72 +35,20 @@
             justify-content: center;
             gap: 17px;
             color: g.$grey;
+            margin: 43px 20px 32px 20px;
          }
     }
 
-    &__page {
+    .wp-pagenavi a, .wp-pagenavi span {
         border: 1px solid g.$grey;
         background-color: g.$white;
         padding: 5px 10px;
     }
 
-    &__page--1 {
+    .wp-pagenavi span.current {
         border: 1px solid g.$grey;
         background-color: g.$brown;
         color: g.$white;
 
     }
-}
 
-// WPの出力クラス（the_posts_pagination）に対応するスタイル
-.p-pagination {
-
-  /* WP が出力する wrapper (.nav-links) を内側で整列 */
-  .nav-links {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* ページ番号（リンク／span） */
-  a.page-numbers,
-  span.page-numbers {
-    display: inline-block;
-    min-width: 2.4rem;
-    padding: 6px 10px;
-    @include g.font-family(MPlusRegular);
-    @include g.font-size(16);
-    color: g.$grey;
-    background: g.$white;
-    border: 1px solid g.$grey;
-    border-radius: 6px;
-    text-decoration: none;
-  }
-
-  a.page-numbers:hover {
-    background: g.$brown;
-    color: g.$white;
-  }
-
-  /* 現在ページ */
-  span.page-numbers.current {
-    background: g.$brown;
-    color: g.$white;
-    font-weight: 700;
-  }
-
-  /* 「…」などのドット表記 */
-  .page-numbers.dots {
-    background: transparent;
-    border: 0;
-    color: g.$grey;
-    pointer-events: none;
-  }
-
-
-  @include g.breakpoint(tablet) {
-    .nav-links { gap: 0.65rem; }
-  }
-}

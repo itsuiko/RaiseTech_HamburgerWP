@@ -9,5 +9,6 @@
 
     @include g.breakpoint(pc) {
         grid-template-columns: 80% 20%;
+        
     }
 }

@@ -6,6 +6,12 @@
     position: absolute;
     width: 100%;
     color: g.$grey;
+
+    @include g.breakpoint(pc) {
+        position: static;
+        padding-bottom: 5rem;
+    }
+    
     
     &__btn {
         @include g.font-family(RobotoBold);

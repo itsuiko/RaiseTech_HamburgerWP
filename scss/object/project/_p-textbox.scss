@@ -48,7 +48,19 @@
             @include g.breakpoint(tablet) {
                 @include g.font-size(36);
             }
+
+        p {
+            br {
+            @include g.font-family(MPlusRegular);
+            margin-top: 8px;
+            @include g.font-size(16);
+
+            }
+        }    
     }
+
+    
+    
 
 }
 

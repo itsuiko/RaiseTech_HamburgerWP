@@ -3,7 +3,7 @@
                 <div class="p-footer__menu">
                     <?php
                     wp_nav_menu(array(
-                        'theme_location' => 'footer_nav',
+                        'theme_location' => 'footer_menu',
                         'container'      => false,
                         'menu_class'     => '',
                         'items_wrap'     => '%3$s',

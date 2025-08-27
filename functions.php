@@ -1,5 +1,9 @@
 <?php
 
+// ------------------------------
+// テーマのセットアップ
+// ------------------------------
+
 function RaiseTech_Hamburger_theme_setup() {
   // タイトルタグ
   add_theme_support( 'title-tag' );
@@ -14,10 +18,8 @@ function RaiseTech_Hamburger_theme_setup() {
   add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
   register_nav_menus(array(
-    'footer_nav'   => esc_html__('フッターのナビゲーション', 'RaiseTech_Hamburger'),
-    'sidebar_burger_menu' => esc_html__('サイドバー（バーガー）', 'RaiseTech_Hamburger'),
-    'sidebar_side_menu'   => esc_html__('サイドバー（サイド）', 'RaiseTech_Hamburger'),
-    'sidebar_drink_menu'  => esc_html__('サイドバー（ドリンク）', 'RaiseTech_Hamburger'),
+    'footer_menu'   => esc_html__('フッターメニュー', 'RaiseTech_Hamburger'),
+    'sidebar_menu'   => esc_html__('サイドバーメニュー', 'RaiseTech_Hamburger'),
   ));
 }
 add_action('after_setup_theme','RaiseTech_Hamburger_theme_setup');
@@ -45,15 +47,31 @@ class Footer_Nav_Walker extends Walker_Nav_Menu {
 // Sidebar Menu Walker
 // ------------------------------
 
-class Sidebar_Menu_Walker extends Walker_Nav_Menu {
-  public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0) {
-    $output .= '<li class="p-sidebar__list">';
-    $output .= '<a href="' . esc_url($item->url) . '" class="p-sidebar__list-menu">';
-    $output .= esc_html($item->title);
-    $output .= '</a></li>';
+class Sidebar_Menu_Walker extends Walker_Nav_Menu
+{
+  function start_lvl(&$output, $depth = 0, $args = array())
+  {
+    if ($depth === 0) {
+      $output .= '<ul class="p-sidebar__menu">';
+    }
   }
+  function end_lvl(&$output, $depth = 0, $args = array())
+  {
+    if ($depth === 0) {
+      $output .= '</ul></section>';
+    }
+  }
+  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+  {
+    if ($depth === 0) {
+      $output .= '<section class="p-sidebar__nav--box">';
+      $output .= '<h3 class="p-sidebar__heading"><a href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a></h3>';
+    } else {
+      $output .= '<li class="p-sidebar__list"><a href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a></li>';
+    }
+  }
+  function end_el(&$output, $item, $depth = 0, $args = array()) {}
 }
-
 
 // ------------------------------
 // 2. CSS・JSの読み込み
