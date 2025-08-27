@@ -55,16 +55,14 @@
                     <?php endwhile; ?>
                 </div>
 
-                <div class="p-pagination">
-                    <?php
-                    the_posts_pagination( array(
-                        'mid_size'  => 1,
-                        'prev_text' => '≪',
-                        'next_text' => '≫',
-                        'screen_reader_text' => '投稿ナビゲーション',
-                    ) );
-                    ?>
-                </div>
+                <div class="p-pagination--mobile">
+                            <div class="p-pagination__previous"><?php previous_posts_link('« 前へ'); ?></div>
+                            <div class="p-pagination__next"><?php next_posts_link('次へ »'); ?> </div>
+                        </div>
+    
+
+                        <?php if (function_exists('wp_pagenavi')) : ?>
+                            <?php wp_pagenavi(); ?>
 
                 <?php else : ?>
                     <div class="p-no-results">

@@ -74,7 +74,7 @@ class Sidebar_Menu_Walker extends Walker_Nav_Menu
 }
 
 // ------------------------------
-// 2. CSS・JSの読み込み
+// CSS・JSの読み込み
 // ------------------------------
 function RaiseTech_Hamburger_enqueue_assets() {
   // Google Fonts の読み込み

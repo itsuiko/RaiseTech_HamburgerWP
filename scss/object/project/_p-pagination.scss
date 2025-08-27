@@ -37,6 +37,16 @@
             color: g.$grey;
             margin: 43px 20px 32px 20px;
          }
+
+         .pages {
+            border: none;
+            background-color: g.$bglightorange;
+         }
+
+         .previouspostslink, .nextpostslink {
+            border: none;
+            background-color: g.$bglightorange;
+         }
     }
 
     .wp-pagenavi a, .wp-pagenavi span {
