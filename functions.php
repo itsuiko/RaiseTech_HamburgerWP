@@ -111,4 +111,14 @@ function RaiseTech_Hamburger_enqueue_assets() {
 }
 add_action('wp_enqueue_scripts', 'RaiseTech_Hamburger_enqueue_assets');
 
+function custom_search_rewrite_rule() {
+    add_rewrite_rule(
+        '^search/([^/]+)/?$',
+        'index.php?s=' . urlencode('$matches[1]'),
+        'top'
+    );
+}
+add_action('init', 'custom_search_rewrite_rule');
+
+
 ?>

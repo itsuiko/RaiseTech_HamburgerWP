@@ -1,3 +1,4 @@
+
 <?php get_header(); ?>
         <main class="l-main">
             <div class="p-main">
@@ -9,6 +10,26 @@
                     </h1>
                 </div>
 
+                <?php if (have_posts()) : ?>
+
+                    <?php
+                    $search_page = get_page_by_path('search');
+                    if ($search_page) {
+                        $about_title = get_field('search_title', $search_page->ID);
+                        $about_text  = get_field('search_text', $search_page->ID);
+                        if ($about_title || $about_text) : ?>
+                            <aside class="c-textbox--brown p-textbox--archive">
+                                <?php if ($about_title) : ?>
+                                    <h2 class="p-textbox__title p-textbox__title--archive"><?php echo esc_html($about_title); ?></h2>
+                                <?php endif; ?>
+                                <?php if ($about_text) : ?>
+                                    <p class="p-textbox__text"><?php echo esc_html($about_text); ?></p>
+                                <?php endif; ?>
+                            </aside>
+                        <?php endif; ?>
+                    <?php } // ← これが抜けているとエラーになる！ ?> 
+                    <?php endif; ?>
+                    
                 <aside class="c-textbox--brown p-textbox--archive">
                     <h2 class="p-textbox__title--archive">
                     <?php
