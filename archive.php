@@ -5,21 +5,28 @@
                     <div class="p-mainvisual__img--archive"></div>
                     <h1 class="p-mainvisual__heading--archive">
                         <span class="p-mainvisual__heading--archive-title">Menu:</span>
-                        <span class="p-mainvisual__heading--archive-type"><?php echo esc_html( get_the_archive_title() ); ?></span>
+                        <span class="p-mainvisual__heading--archive-type"><?php echo esc_html( single_cat_title( '', false ) ); ?></span>
                     </h1>    
                 </div>
-                <aside class="c-textbox--brown p-textbox--archive">
-                    <?php
-                    $desc = function_exists('get_the_archive_description') ? get_the_archive_description() : '';
-                    if ( $desc ) {
-                        echo '<h2 class="p-textbox__title--archive">' . wp_kses_post( $desc ) . '</h2>';
-                    } else {
-                        // サイトのキャッチや固定テキストを代わりに表示
-                        echo '<h2 class="p-textbox__title--archive">' . esc_html( get_bloginfo('description') ) . '</h2>';
-                        echo '<p class="p-textbox__text">このアーカイブに関する補足説明が入ります。</p>';
-                    }
-                    ?>
-                </aside>
+                
+                <?php
+                $acf_source = get_archive_acf_source();
+                $about_title = get_field('about_title', $acf_source);
+                $about_text  = get_field('about_text', $acf_source);
+                ?>
+
+                <?php if ($about_title || $about_text): ?>
+                    <aside class="c-textbox--brown p-textbox--archive">
+                        <?php if ($about_title): ?>
+                            <h2 class="p-textbox__title p-textbox__title--archive"><?php echo esc_html($about_title); ?></h2>
+                        <?php endif; ?>
+                        <?php if ($about_text): ?>
+                            <p class="p-textbox__text"><?php echo nl2br(esc_html($about_text)); ?></p>
+                        <?php endif; ?>
+                    </aside>
+                <?php endif; ?>
+
+
 
                 <?php if ( have_posts() ) : ?>
                     <div class="p-archive-list">
@@ -33,27 +40,38 @@
 
                             <figcaption class="p-card__textbox">
                                 <h2 class="p-card__type">
-                                    <?php
-                                    $cats = get_the_category();
-                                    if ( ! empty( $cats ) ) {
-                                        echo esc_html( $cats[0]->name );
-                                    }
-                                    ?>
+                                    <?php the_title(); ?>
                                 </h2>
 
                                 <h3 class="p-card__heading">
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                    <?php
+                                    $content = get_the_content();
+                                    if ( preg_match( '/<h[1-6][^>]*>(.*?)<\/h[1-6]>/', $content, $matches ) ) {
+                                        echo esc_html( $matches[1] ); // 最初の見出しのテキストだけ
+                                    } else {
+                                        echo esc_html( get_the_title() ); // 見出しがなければタイトルを代用
+                                    }
+                                    ?>
+
                                 </h3>
 
                                 <p class="p-card__text">
-                                    <?php echo esc_html( wp_trim_words( get_the_excerpt() ?: get_the_content(), 25 ) ); ?>
+                                    <?php
+                                    $content = get_the_content();
+                                    // 見出しタグを除去
+                                    $content = preg_replace( '/<h[1-6][^>]*>.*?<\/h[1-6]>/', '', $content );
+                                    // 残りの本文を整形
+                                    $text = wp_strip_all_tags( $content );
+                                    echo esc_html( wp_trim_words( $text, 60 ) );
+                                    ?>
+
                                 </p>
 
                                 <a class="p-card__link" href="<?php the_permalink(); ?>">詳しく見る</a>
                             </figcaption>
-                        </figure>
-                    <?php endwhile; ?>
-                </div>
+                            </figure>
+                        <?php endwhile; ?>
+                    </div>
 
                 <div class="p-pagination--mobile">
                             <div class="p-pagination__previous"><?php previous_posts_link('« 前へ'); ?></div>

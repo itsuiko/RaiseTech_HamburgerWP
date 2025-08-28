@@ -120,5 +120,16 @@ function custom_search_rewrite_rule() {
 }
 add_action('init', 'custom_search_rewrite_rule');
 
+function get_archive_acf_source() {
+  if (is_category() || is_tax()) {
+    return get_queried_object();
+  } elseif (is_post_type_archive()) {
+    $slug = get_post_type();
+    $page = get_page_by_path($slug);
+    return $page ? $page->ID : null;
+  }
+  return null;
+}
+
 
 ?>

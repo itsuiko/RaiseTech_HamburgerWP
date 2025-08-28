@@ -1,4 +1,3 @@
-
 <?php get_header(); ?>
         <main class="l-main">
             <div class="p-main">
@@ -27,7 +26,7 @@
                                 <?php endif; ?>
                             </aside>
                         <?php endif; ?>
-                    <?php } // ← これが抜けているとエラーになる！ ?> 
+                    <?php }  ?> 
                     <?php endif; ?>
                     
                 <aside class="c-textbox--brown p-textbox--archive">
