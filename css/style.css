@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Box sizing rules */
 *,
 *::before,
@@ -661,6 +662,20 @@ button {
 }
 .p-contents--singlepage .p-contents__list-container .p-contents__list:nth-child(2) {
   margin-left: 18px;
+}
+.p-contents--singlepage .p-contents__list {
+  list-style: disc; /* 点付きリスト */
+}
+.p-contents--singlepage .p-contents__list--numbered {
+  list-style: decimal; /* 数字付きリスト */
+}
+.p-contents--singlepage .wp-block-list {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+.p-contents--singlepage .wp-block-list ul,
+.p-contents--singlepage .wp-block-list ol {
+  padding-left: 2em;
 }
 .p-contents--singlepage .p-contents__code-box {
   background-color: #F5F5F5;

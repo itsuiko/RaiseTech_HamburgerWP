@@ -154,6 +154,24 @@
         }
     }
 
+    .p-contents__list {
+        list-style: disc; /* 点付きリスト */
+    }
+
+    .p-contents__list--numbered {
+        list-style: decimal; /* 数字付きリスト */
+    }
+
+    .wp-block-list {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+.wp-block-list ul,
+.wp-block-list ol {
+  padding-left: 2em;
+}
+
+
     .p-contents__code-box {
         background-color: g.$lightgrey;
         @include g.font-family(MPlusRegular);
