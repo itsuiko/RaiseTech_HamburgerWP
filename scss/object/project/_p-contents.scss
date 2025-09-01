@@ -137,6 +137,9 @@
         }
     }
 
+    
+
+
     .p-contents__list-container {
         display: flex;
         flex-direction: column;
@@ -163,13 +166,13 @@
     }
 
     .wp-block-list {
-  list-style-type: disc;
-  padding-left: 1.5em;
-}
-.wp-block-list ul,
-.wp-block-list ol {
-  padding-left: 2em;
-}
+        list-style-type: disc;
+        padding-left: 1.5em;
+    }
+    .wp-block-list ul,
+    .wp-block-list ol {
+        padding-left: 2em;
+    }
 
 
     .p-contents__code-box {
@@ -218,3 +221,32 @@
         @include g.font-family(MPlusBold);
     }
 }
+
+    .wp-block-gallery.wp-block-gallery-1 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* 画像間の余白 */
+    }
+
+    .wp-block-gallery.wp-block-gallery-1 {
+        --wp--style--gallery-gap-default: 20px;
+    }
+
+    /* ギャラリー内の各画像ブロック */
+    .wp-block-gallery.wp-block-gallery-1 figure.wp-block-image {
+        flex: 1 1 100%; /* スマホ：1列 */
+    }
+
+    /* タブレット：2列 */
+    @media (min-width: 768px) and (max-width: 1300px) {
+        .wp-block-gallery.wp-block-gallery-1 figure.wp-block-image {
+            flex: 1 1 calc(50% - 16px);
+        }
+    }
+
+    /* PC：3列 */
+    @media (min-width: 1300px) {
+        .wp-block-gallery.wp-block-gallery-1 figure.wp-block-image {
+        flex: 1 1 calc(33.333% - 16px);
+        }
+    }
