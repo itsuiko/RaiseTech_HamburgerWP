@@ -3,7 +3,7 @@
 @use "../../foundation/global/" as g;
 
 .p-sidebar {
-    position: absolute;
+    position: relative;
     width: 100%;
     color: g.$grey;
 

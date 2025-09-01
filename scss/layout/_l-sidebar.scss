@@ -4,7 +4,7 @@
 
 .l-sidebar {
     grid-row: 1/4;
-    grid-column: 2/1;
+    grid-column: 1/2;
     position: relative;
     margin-left: auto;
     width: 87vw;
@@ -12,6 +12,7 @@
     opacity: 0;
     transition: right 0.5s ease-out, opacity 0.5s ease-in;
     background-color: g.$lightorange;
+    
 
     @include g.breakpoint(tablet) {
         width: 44vw;

@@ -142,7 +142,7 @@ button {
 
 .l-sidebar {
   grid-row: 1/4;
-  grid-column: 2/1;
+  grid-column: 1/2;
   position: relative;
   margin-left: auto;
   width: 87vw;
@@ -188,7 +188,8 @@ button {
 .c-grid {
   display: grid;
   grid-template-rows: 215px 1fr 150px;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr auto;
+  min-height: 100vh;
 }
 @media (min-width: 1300px) {
   .c-grid {
@@ -1114,7 +1115,7 @@ button {
 }
 
 .p-sidebar {
-  position: absolute;
+  position: relative;
   width: 100%;
   color: #707070;
 }
