@@ -1,0 +1,36 @@
+@use "../../foundation/global/" as g;
+
+.p-404 {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  text-align: center;
+
+  &__box {
+    max-width: 600px;
+    padding: 2rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__message {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #0073aa;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #005177;
+    }
+  }
+}
