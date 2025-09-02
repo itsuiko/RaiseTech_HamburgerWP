@@ -5,39 +5,68 @@
                 <div class="p-mainvisual__img"></div>
                 <h2 class="p-mainvisual__heading">ダミーサイト</h2>
             </div>
+
+            <?php
+                $page = get_page_by_path('foodchoices');
+                $page_id = $page ? $page->ID : null;
+
+                $takeout_text_1 = get_field('takeout_text_1', $page_id);
+                $takeout_text_2 = get_field('takeout_text_2', $page_id);
+                $eatin_text_1   = get_field('eatin_text_1', $page_id);
+                $eatin_text_2   = get_field('eatin_text_2', $page_id);
+            ?>
+
+
             <article class="p-contents">
                 <div class="p-content p-content--takeout">
                     <h2 class="p-content__heading">Take Out</h2>
                     <div class="p-content__text-block">
-                        <dl class="c-textbox--brown p-textbox">
-                            <dt class="p-textbox__title">Take OUT</dt>
-                            <dd class="p-textbox__text">当店のテイクアウトで利用できる商品を掲載しています当店のテイクアウトで利用できる商品を掲載しています</dd>
-                        </dl>
-                        <dl class="c-textbox--brown p-textbox">
-                            <dt class="p-textbox__title">Take OUT</dt>
-                            <dd class="p-textbox__text">当店のテイクアウトで利用できる商品を掲載しています当店のテイクアウトで利用できる商品を掲載しています当店のテイクアウトで利用できる商品を掲載しています当店のテイクアウトで利用できる商品を掲載しています</dd>
-                        </dl>
+                        <?php
+                            RaiseTech_Hamburger_render_textbox('Take OUT', $takeout_text_1);
+                            RaiseTech_Hamburger_render_textbox('Take OUT', $takeout_text_2);
+                        ?>
                     </div>
                 </div>
+
                 <div class="p-content p-content--eatin">
                     <h2 class="p-content__heading">Eat In</h2>
                     <div class="p-content__text-block">
-                        <dl class="c-textbox--brown p-textbox">
-                            <dt class="p-textbox__title">Eat In</dt>
-                            <dd class="p-textbox__text">当店のテイクアウトで利用できる商品を掲載しています当店のテイクアウトで利用できる商品を掲載しています当店のテイクアウトで利用できる商品を掲載しています</dd>
-                        </dl>
-                        <dl class="c-textbox--brown p-textbox">
-                            <dt class="p-textbox__title">Eat In</dt>
-                            <dd class="p-textbox__text">当店のテイクアウトで利用できる商品を掲載しています当店のテイクアウトで利用できる商品を掲載しています当店のテイクアウトで利用できる商品を掲載しています</dd>
-                        </dl>
+                        <?php
+                            RaiseTech_Hamburger_render_textbox('Eat In', $eatin_text_1);
+                            RaiseTech_Hamburger_render_textbox('Eat In', $eatin_text_2);
+                        ?>
                     </div>
                 </div>
+
             </article>
-            <section class="p-location"> 
-                <iframe class="p-location__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5450.2043718830355!2d139.7536889395407!3d35.6841196692802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c0d02d8064d%3A0xd11a5f0b379e6db7!2z55qH5bGF!5e0!3m2!1sja!2sjp!4v1746886479042!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <?php
+                $map_page = get_page_by_path('map');
+                $map_id = $map_page ? $map_page->ID : null;
+                $map_iframe = get_field('location_map', $map_id);
+                $map_title  = get_field('location_title', $map_id);
+                $map_text   = get_field('location_text', $map_id);
+            ?>
+
+            <section class="p-location">
+                <?php if ($map_iframe): ?>
+                    <div class="p-location__map">
+                        <?php
+                            $map_iframe = str_replace('<iframe', '<iframe class="p-location__map"', $map_iframe);
+                            echo wp_kses($map_iframe, ['iframe' => [
+                            'src' => true, 'width' => true, 'height' => true,
+                            'frameborder' => true, 'allowfullscreen' => true, 'class' => true
+                            ]]);
+                        ?>
+                    </div>
+                <?php endif; ?>
+
                 <div class="p-location__textbox">
-                    <h2 class="p-location__textbox-title">見出しが入ります</h2>
-                    <p class="p-location__textbox-text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+                    <?php if ($map_title): ?>
+                        <h2 class="p-location__textbox-title"><?php echo esc_html($map_title); ?></h2>
+                    <?php endif; ?>
+                    <?php if ($map_text): ?>
+                        <p class="p-location__textbox-text"><?php echo esc_html($map_text); ?></p>
+                    <?php endif; ?>
                 </div>
             </section>
             </div>

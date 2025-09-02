@@ -131,5 +131,17 @@ function get_archive_acf_source() {
   return null;
 }
 
+function RaiseTech_Hamburger_render_textbox($title, $text, $modifier = '') {
+    if (!$text) return;
+    $class = 'c-textbox--brown p-textbox' . ($modifier ? " {$modifier}" : '');
+    ?>
+    <dl class="<?php echo esc_attr($class); ?>">
+        <dt class="p-textbox__title"><?php echo esc_html($title); ?></dt>
+        <dd class="p-textbox__text"><?php echo esc_html($text); ?></dd>
+    </dl>
+    <?php
+}
+
+
 
 ?>
