@@ -18,26 +18,33 @@
 
 
             <article class="p-contents">
-                <div class="p-content p-content--takeout">
-                    <h2 class="p-content__heading">Take Out</h2>
-                    <div class="p-content__text-block">
-                        <?php
+                <?php
+                $takeout_link = get_category_link(get_category_by_slug('takeout')->term_id);
+                $eatin_link = get_category_link(get_category_by_slug('eatin')->term_id);
+                ?>
+
+                <a href="<?php echo esc_url($takeout_link); ?>" class="p-content__link-wrapper">
+                    <div class="p-content p-content--takeout">
+                        <h2 class="p-content__heading">Take Out</h2>
+                        <div class="p-content__text-block">
+                            <?php
                             RaiseTech_Hamburger_render_textbox('Take OUT', $takeout_text_1);
                             RaiseTech_Hamburger_render_textbox('Take OUT', $takeout_text_2);
-                        ?>
+                            ?>
+                        </div>
                     </div>
-                </div>
-
-                <div class="p-content p-content--eatin">
-                    <h2 class="p-content__heading">Eat In</h2>
-                    <div class="p-content__text-block">
-                        <?php
+                </a>
+                <a href="<?php echo esc_url($eatin_link); ?>" class="p-content__link-wrapper">
+                    <div class="p-content p-content--eatin">
+                        <h2 class="p-content__heading">Eat In</h2>
+                        <div class="p-content__text-block">
+                            <?php
                             RaiseTech_Hamburger_render_textbox('Eat In', $eatin_text_1);
                             RaiseTech_Hamburger_render_textbox('Eat In', $eatin_text_2);
-                        ?>
+                            ?>
+                        </div>
                     </div>
-                </div>
-
+                </a>
             </article>
             <?php
                 $map_page = get_page_by_path('map');
