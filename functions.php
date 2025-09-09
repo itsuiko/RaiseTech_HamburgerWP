@@ -8,8 +8,6 @@ function RaiseTech_Hamburger_theme_setup() {
   // タイトルタグ
   add_theme_support( 'title-tag' );
 
-  // メニューを有効化
-  add_theme_support( 'menus' );
 
   // アイキャッチ画像
   add_theme_support( 'post-thumbnails' );
