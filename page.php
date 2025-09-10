@@ -17,6 +17,15 @@
                         <div class="p-textbox--singlepage">
                             <?php the_content(); ?>
 
+                            <?php
+                            wp_link_pages( array(
+                                'before' => '<div class="page-links"><span>ページ:</span>',
+                                'after'  => '</div>',
+                                'link_before' => '<span>',
+                                'link_after'  => '</span>',
+                            ) );
+                            ?>
+
                         </div>
 
                     </div>
