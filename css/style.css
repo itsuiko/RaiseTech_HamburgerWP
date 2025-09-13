@@ -513,6 +513,20 @@ button {
   left: 7%;
 }
 
+/* 共通プレースホルダ（背景画像系） */
+.p-contents .p-content--eatin, .p-contents .p-content--takeout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 643px;
+  margin-bottom: 20px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* メイン: front / archive 等のコンテンツラッパー */
 .p-contents {
   position: relative;
   display: flex;
@@ -520,6 +534,8 @@ button {
   padding: 20px;
   height: 100%;
   width: 100%;
+  /* 背景差し替えバリエーション */
+  /* 共通 p-content 要素 */
 }
 @media (min-width: 768px) {
   .p-contents {
@@ -536,25 +552,12 @@ button {
   }
 }
 .p-contents .p-content--takeout {
-  background-image: url(../images/front-takeout.jpg);
+  background-image: url("../images/front-takeout.jpg");
 }
 .p-contents .p-content--eatin {
-  background-image: url(../images/eatin.jpg);
-}
-.p-contents .p-content--takeout,
-.p-contents .p-content--eatin {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 643px;
-  height: auto;
-  margin-bottom: 20px;
-  width: 100%;
+  background-image: url("../images/eatin.jpg");
 }
 .p-contents .p-content {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
 }
 .p-contents .p-content__heading {
@@ -566,6 +569,7 @@ button {
   color: #EAEAEA;
   margin-top: 13px;
   margin-left: 15px;
+  position: relative;
 }
 @media (min-width: 768px) {
   .p-contents .p-content__heading {
@@ -609,6 +613,7 @@ button {
   margin-top: auto;
 }
 
+/* シングルページ用 contents */
 .p-contents--singlepage {
   display: flex;
   flex-direction: column;
@@ -617,11 +622,11 @@ button {
 }
 @media (min-width: 768px) {
   .p-contents--singlepage {
-    padding: 60px 60px 150px 60px;
+    padding: 60px;
     gap: 60px;
   }
 }
-.p-contents--singlepage .p-contents__img--singlepage {
+.p-contents--singlepage .p-contents__img--single {
   width: 100%;
   position: relative;
 }
@@ -665,10 +670,10 @@ button {
   margin-left: 18px;
 }
 .p-contents--singlepage .p-contents__list {
-  list-style: disc; /* 点付きリスト */
+  list-style: disc;
 }
 .p-contents--singlepage .p-contents__list--numbered {
-  list-style: decimal; /* 数字付きリスト */
+  list-style: decimal;
 }
 .p-contents--singlepage .wp-block-list {
   list-style-type: disc;
@@ -690,16 +695,15 @@ button {
   border: 1px solid #000;
   text-align: left;
 }
-.p-contents--singlepage .p-contents__table .p-contents__th {
-  border: 1px solid #000;
-  font-family: "M PLUS 1p", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  padding: 30px 0 30px 30px;
-}
+.p-contents--singlepage .p-contents__table .p-contents__th,
 .p-contents--singlepage .p-contents__table .p-contents__td {
   border: 1px solid #000;
   padding: 30px 0 30px 30px;
+  font-family: "M PLUS 1p", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.p-contents--singlepage .p-contents__table .p-contents__td {
   width: 58%;
 }
 @media (min-width: 768px) {
@@ -729,33 +733,28 @@ button {
   font-style: normal;
 }
 
+/* ギャラリーのレスポンシブ（重複まとめ） */
 .wp-block-gallery.wp-block-gallery-1 {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* 画像間の余白 */
-}
-
-.wp-block-gallery.wp-block-gallery-1 {
+  gap: 20px;
   --wp--style--gallery-gap-default: 20px;
 }
-
-/* ギャラリー内の各画像ブロック */
 .wp-block-gallery.wp-block-gallery-1 figure.wp-block-image {
-  flex: 1 1 100%; /* スマホ：1列 */
+  flex: 1 1 100%;
 }
-
-/* タブレット：2列 */
-@media (min-width: 768px) and (max-width: 1300px) {
+@media (min-width: 768px) {
   .wp-block-gallery.wp-block-gallery-1 figure.wp-block-image {
     flex: 1 1 calc(50% - 16px);
   }
 }
-/* PC：3列 */
 @media (min-width: 1300px) {
   .wp-block-gallery.wp-block-gallery-1 figure.wp-block-image {
     flex: 1 1 calc(33.333% - 16px);
   }
 }
+
+/* リンクラッパーの共通スタイル */
 .p-content__link-wrapper {
   display: block;
   text-decoration: none;

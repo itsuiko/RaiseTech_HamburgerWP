@@ -3,261 +3,200 @@
 
 @use "../../foundation/global/" as g;
 
-.p-contents {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    height: 100%;
-    width: 100%;
-
-    @include g.breakpoint(tablet) {
-        height: auto;
-        flex-direction: row;
-        padding: 40px;
-        gap: 41px;
-    }
-
-    @include g.breakpoint(pc) {
-        padding: 120px;
-        gap: 81px;
-    }
-
-    .p-content--takeout {
-        background-image: url(../images/front-takeout.jpg);
-    }
-
-    .p-content--eatin {
-        background-image: url(../images/eatin.jpg);
-    }
-
-    .p-content--takeout,
-    .p-content--eatin {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        min-height: 643px;
-        height: auto;
-        margin-bottom: 20px;
-        width: 100%;
-    }
-
-    .p-content {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-
-        &__heading {
-            @include g.font-family(RobotoBold);
-            @include g.font-size(41);
-            color: g.$textgrey;
-            margin-top: 13px;
-            margin-left: 15px;
-
-            @include g.breakpoint(tablet) {
-                @include g.font-size(44);
-                margin-top: 14px;
-                margin-left: 11px;
-            }
-
-            @include g.breakpoint(pc) {
-                @include g.font-size(80);
-                margin-top: 24px;
-                margin-left: 10px;
-            }
-
-            &::after {
-                position: absolute;
-                content: '';
-                top: 80px;
-                left: 15px;
-                height: 4px;
-                width: 34px;
-                background-color: g.$white;
-
-                @include g.breakpoint(tablet) {
-                    width: 36px;
-                    top: 91px;
-                }
-
-                @include g.breakpoint(pc) {
-                    width: 63px;
-                    top: 160px;
-                    left: 18px;
-                }
-            }
-
-        }
-
-        &__text-block {
-            margin-top: auto;
-        }
-    }
-
+/* 共通プレースホルダ（背景画像系） */
+%content-variant {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 643px;
+  margin-bottom: 20px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.p-contents--singlepage {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 34px 20px 69px 20px;
+/* メイン: front / archive 等のコンテンツラッパー */
+.p-contents {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
 
-    @include g.breakpoint(tablet) {
-        padding: 60px 60px 150px 60px;
-        gap: 60px;
-    }
+  @include g.breakpoint(tablet) {
+    height: auto;
+    flex-direction: row;
+    padding: 40px;
+    gap: 41px;
+  }
 
-    .p-contents__img--singlepage {
-        width: 100%;
-        position: relative;
-    }
+  @include g.breakpoint(pc) {
+    padding: 120px;
+    gap: 81px;
+  }
 
-        
+  /* 背景差し替えバリエーション */
+  .p-content--takeout { @extend %content-variant; background-image: url('../images/front-takeout.jpg'); }
+  .p-content--eatin   { @extend %content-variant; background-image: url('../images/eatin.jpg'); }
 
-    .p-contents__img2--singlepage {
-        width: 80%;
-        margin: 0 auto;
+  /* 共通 p-content 要素 */
+  .p-content {
+    width: 100%;
+
+    &__heading {
+      @include g.font-family(RobotoBold);
+      @include g.font-size(41);
+      color: g.$textgrey;
+      margin-top: 13px;
+      margin-left: 15px;
+      position: relative;
+
+      @include g.breakpoint(tablet) {
+        @include g.font-size(44);
+        margin-top: 14px;
+        margin-left: 11px;
+      }
+
+      @include g.breakpoint(pc) {
+        @include g.font-size(80);
+        margin-top: 24px;
+        margin-left: 10px;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        top: 80px;
+        left: 15px;
+        height: 4px;
+        width: 34px;
+        background-color: g.$white;
 
         @include g.breakpoint(tablet) {
-            width: auto;
-        }
-    }
-
-    .p-contents__imgbox {
-        display: grid;
-        gap: 20px;
-
-        @include g.breakpoint(tablet) {
-            grid-template-columns: 1fr 1fr;
+          width: 36px;
+          top: 91px;
         }
 
         @include g.breakpoint(pc) {
-            grid-template-columns: 1fr 1fr 1fr;
+          width: 63px;
+          top: 160px;
+          left: 18px;
         }
+      }
     }
 
-    
-
-
-    .p-contents__list-container {
-        display: flex;
-        flex-direction: column;
-        gap: 57px;
-        @include g.font-family(MPlusRegular);
-
-        .p-contents__list-box {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 17px;
-        }
-
-        .p-contents__list:nth-child(2) {
-            margin-left: 18px;
-        }
+    &__text-block {
+      margin-top: auto;
     }
-
-    .p-contents__list {
-        list-style: disc; /* 点付きリスト */
-    }
-
-    .p-contents__list--numbered {
-        list-style: decimal; /* 数字付きリスト */
-    }
-
-    .wp-block-list {
-        list-style-type: disc;
-        padding-left: 1.5em;
-    }
-    .wp-block-list ul,
-    .wp-block-list ol {
-        padding-left: 2em;
-    }
-
-
-    .p-contents__code-box {
-        background-color: g.$lightgrey;
-        @include g.font-family(MPlusRegular);
-        padding: 50px 0 50px 50px;
-    }
-
-    .p-contents__table {
-        border-collapse: collapse;
-        border: 1px solid #000;
-        text-align: left;
-
-        .p-contents__th {
-            border: 1px solid #000;
-            @include g.font-family(MPlusRegular);
-            padding: 30px 0 30px 30px;
-        }
-
-        .p-contents__td {
-            border: 1px solid #000;
-            padding: 30px 0 30px 30px;
-            width: 58%;
-
-            @include g.breakpoint(tablet) {
-                width: 69%;
-            }
-        }
-    }
-
-    .p-contents__btn {
-        height: 81px;
-        @include g.font-family(MPlusBold);
-        border: 1px solid g.$grey;
-        background-image: linear-gradient(to right, g.$lightorange, g.$searchbutton);
-        border-radius: 20px;
-        margin-top: 30px;
-
-        @include g.breakpoint(tablet) {
-            width: 51%;
-            height: 104px;
-        }
-    }
-
-    .p-contents__text {
-        @include g.font-family(MPlusBold);
-    }
+  }
 }
 
-    .wp-block-gallery.wp-block-gallery-1 {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px; /* 画像間の余白 */
+/* シングルページ用 contents */
+.p-contents--singlepage {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 34px 20px 69px 20px;
+
+  @include g.breakpoint(tablet) {
+    padding: 60px;
+    gap: 60px;
+  }
+
+  .p-contents__img--single { width: 100%; position: relative; }
+
+  .p-contents__img2--singlepage {
+    width: 80%;
+    margin: 0 auto;
+    @include g.breakpoint(tablet) { width: auto; }
+  }
+
+  .p-contents__imgbox {
+    display: grid;
+    gap: 20px;
+    @include g.breakpoint(tablet) { grid-template-columns: 1fr 1fr; }
+    @include g.breakpoint(pc)     { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .p-contents__list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 57px;
+    @include g.font-family(MPlusRegular);
+
+    .p-contents__list-box { display: grid; grid-template-columns: 1fr; gap: 17px; }
+
+    .p-contents__list:nth-child(2) { margin-left: 18px; }
+  }
+
+  .p-contents__list { list-style: disc; }
+  .p-contents__list--numbered { list-style: decimal; }
+
+  .wp-block-list { list-style-type: disc; padding-left: 1.5em; }
+  .wp-block-list ul,
+  .wp-block-list ol { padding-left: 2em; }
+
+  .p-contents__code-box {
+    background-color: g.$lightgrey;
+    @include g.font-family(MPlusRegular);
+    padding: 50px 0 50px 50px;
+  }
+
+  .p-contents__table {
+    border-collapse: collapse;
+    border: 1px solid #000;
+    text-align: left;
+
+    .p-contents__th,
+    .p-contents__td {
+      border: 1px solid #000;
+      padding: 30px 0 30px 30px;
+      @include g.font-family(MPlusRegular);
     }
 
-    .wp-block-gallery.wp-block-gallery-1 {
-        --wp--style--gallery-gap-default: 20px;
-    }
+    .p-contents__td { width: 58%; @include g.breakpoint(tablet) { width: 69%; } }
+  }
 
-    /* ギャラリー内の各画像ブロック */
-    .wp-block-gallery.wp-block-gallery-1 figure.wp-block-image {
-        flex: 1 1 100%; /* スマホ：1列 */
-    }
+  .p-contents__btn {
+    height: 81px;
+    @include g.font-family(MPlusBold);
+    border: 1px solid g.$grey;
+    background-image: linear-gradient(to right, g.$lightorange, g.$searchbutton);
+    border-radius: 20px;
+    margin-top: 30px;
 
-    /* タブレット：2列 */
-    @media (min-width: 768px) and (max-width: 1300px) {
-        .wp-block-gallery.wp-block-gallery-1 figure.wp-block-image {
-            flex: 1 1 calc(50% - 16px);
-        }
-    }
+    @include g.breakpoint(tablet) { width: 51%; height: 104px; }
+  }
 
-    /* PC：3列 */
-    @media (min-width: 1300px) {
-        .wp-block-gallery.wp-block-gallery-1 figure.wp-block-image {
-        flex: 1 1 calc(33.333% - 16px);
-        }
-    }
+  .p-contents__text { @include g.font-family(MPlusBold); }
+}
 
+/* ギャラリーのレスポンシブ（重複まとめ） */
+.wp-block-gallery.wp-block-gallery-1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  --wp--style--gallery-gap-default: 20px;
 
+  figure.wp-block-image { flex: 1 1 100%; }
+
+  @include g.breakpoint(tablet) {
+    figure.wp-block-image { flex: 1 1 calc(50% - 16px); }
+  }
+
+  @include g.breakpoint(pc) {
+    figure.wp-block-image { flex: 1 1 calc(33.333% - 16px); }
+  }
+}
+
+/* リンクラッパーの共通スタイル */
 .p-content__link-wrapper {
   display: block;
   text-decoration: none;
   color: inherit;
   width: 100%;
-
 }
 
 

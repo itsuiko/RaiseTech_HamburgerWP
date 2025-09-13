@@ -26,62 +26,49 @@
                     </aside>
                 <?php endif; ?>
 
-
-
                 <?php if ( have_posts() ) : ?>
                     <div class="p-archive-list">
                         <?php while ( have_posts() ) : the_post(); ?>
                             <figure class="p-card">
                                 <?php if ( has_post_thumbnail() ) : ?>
                                     <?php the_post_thumbnail( 'medium', array( 'class' => 'p-card__img', 'alt' => get_the_title() ) ); ?>
-                            <?php else : ?>
-                                <img src="<?php echo esc_url( get_theme_file_uri( 'images/archive.jpg' ) ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="p-card__img">
-                            <?php endif; ?>
+                                <?php else : ?>
+                                    <img src="<?php echo esc_url( get_theme_file_uri( 'images/archive.jpg' ) ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="p-card__img">
+                                <?php endif; ?>
 
-                            <figcaption class="p-card__textbox">
-                                <h2 class="p-card__type">
-                                    <?php the_title(); ?>
-                                </h2>
+                                <figcaption class="p-card__textbox">
+                                    <h2 class="p-card__type">
+                                        <?php the_title(); ?>
+                                    </h2>
 
-                                <h3 class="p-card__heading">
-                                    <?php
-                                    $content = get_the_content();
-                                    if ( preg_match( '/<h[1-6][^>]*>(.*?)<\/h[1-6]>/', $content, $matches ) ) {
-                                        echo esc_html( $matches[1] ); // 最初の見出しのテキストだけ
-                                    } else {
-                                        echo esc_html( get_the_title() ); // 見出しがなければタイトルを代用
-                                    }
-                                    ?>
+                                    <h3 class="p-card__heading">
+                                        <?php
+                                        $content = get_the_content();
+                                        echo esc_html( rth_get_first_heading_text( $content, get_the_title() ) );
+                                        ?>
+                                    </h3>
 
-                                </h3>
+                                    <p class="p-card__text">
+                                        <?php
+                                        $content = get_the_content();
+                                        echo esc_html( rth_get_trimmed_excerpt_from_content( $content, 60 ) );
+                                        ?>
+                                    </p>
 
-                                <p class="p-card__text">
-                                    <?php
-                                    $content = get_the_content();
-                                    // 見出しタグを除去
-                                    $content = preg_replace( '/<h[1-6][^>]*>.*?<\/h[1-6]>/', '', $content );
-                                    // 残りの本文を整形
-                                    $text = wp_strip_all_tags( $content );
-                                    echo esc_html( wp_trim_words( $text, 60 ) );
-                                    ?>
-
-                                </p>
-
-                                <a class="p-card__link" href="<?php the_permalink(); ?>">詳しく見る</a>
-                            </figcaption>
+                                    <a class="p-card__link" href="<?php the_permalink(); ?>">詳しく見る</a>
+                                </figcaption>
                             </figure>
                         <?php endwhile; ?>
                     </div>
 
-                <div class="p-pagination--mobile">
-                            <div class="p-pagination__previous"><?php previous_posts_link('« 前へ'); ?></div>
-                            <div class="p-pagination__next"><?php next_posts_link('次へ »'); ?> </div>
-                        </div>
-    
+                    <div class="p-pagination--mobile">
+                        <div class="p-pagination__previous"><?php previous_posts_link('« 前へ'); ?></div>
+                        <div class="p-pagination__next"><?php next_posts_link('次へ »'); ?> </div>
+                    </div>
 
-                        <?php if (function_exists('wp_pagenavi')) : ?>
-                            <?php wp_pagenavi(); ?>
-                        <?php endif; ?>
+                    <?php if (function_exists('wp_pagenavi')) : ?>
+                        <?php wp_pagenavi(); ?>
+                    <?php endif; ?>
                 <?php else : ?>
                     <div class="p-no-results">
                         <p>該当する投稿はありません。</p>
