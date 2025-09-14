@@ -63,13 +63,12 @@
             margin-left: 42px;
 
             &::after {
-                position: absolute;
+                display: block;
                 content: '';
-                top: 50px;
-                left: 0px;
                 height: 2px;
                 width: 75px;
                 background-color: g.$white;
+                margin-top: 50px;
             }
 
             @include g.breakpoint(pc) {

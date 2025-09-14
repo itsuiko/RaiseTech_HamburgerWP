@@ -1076,13 +1076,12 @@ button {
   margin-left: 42px;
 }
 .p-location__textbox-title::after {
-  position: absolute;
+  display: block;
   content: "";
-  top: 50px;
-  left: 0px;
   height: 2px;
   width: 75px;
   background-color: #FFF;
+  margin-top: 50px;
 }
 @media (min-width: 1300px) {
   .p-location__textbox-title {
